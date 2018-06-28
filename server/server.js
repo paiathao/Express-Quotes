@@ -1,15 +1,15 @@
 const express = require('express');
-
 const quotes = require('./quotes.js');
-
 const app = express();
+const bodyParser = require('body-parser'); // require for POST
 const port = process.env.PORT || 5000; 
 
-app.use(express.static('server/public')) 
+app.use(express.static('server/public'))
+app.use(bodyParser.urlencoded({ extended: true })); // require for POST
 
-app.get('/quotes', function(req, res) {
-    res.send(quotes) 
-});
+app.get('/quotes', quotes.getQuotes);
+
+app.post('/quotes', quotes.newQuotes);
 
 
 

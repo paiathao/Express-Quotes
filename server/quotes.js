@@ -13,4 +13,17 @@ let quotes = [{
 }
 ]
 
-module.exports = quotes;
+function newQuotes (req, res){
+    console.log(req.body)
+    let newQuote = req.body;
+    quotes.push(newQuote)
+}
+
+function getQuotes (req, res){
+    res.send(quotes)
+}
+
+module.exports = {
+    newQuotes: newQuotes,
+    getQuotes: getQuotes
+}

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,21 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="styles/bootstrap.min.css">
 </head>
+
 <body>
     <h1>Inspirational Quotes</h1>
-    <div id="quotesContainer"></div>
-    
+    <div class="container">
+        <div class="inputSection">
+            <!-- Form so inputs clear and can press 'Enter' to submit -->
+            <form>
+                <input class="quoteInput" type="text" placeholder="Quote">
+                <input class="authorInput" type="text" placeholder="Author of quote">
+                <button id="submit" class="btn btn-primary">Add Quote</button>
+            </form>
+        </div>
+        <div id="quotesContainer">
+        </div>
+    </div>
 </body>
+
 </html>
