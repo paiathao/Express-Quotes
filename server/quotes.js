@@ -19,11 +19,17 @@ function newQuotes (req, res){
     quotes.push(newQuote)
 }
 
+function randomQuote (req, res){
+    let random = quotes[Math.floor(Math.random() * quotes.length)];
+    res.send(random)
+}
+
 function getQuotes (req, res){
     res.send(quotes)
 }
 
 module.exports = {
     newQuotes: newQuotes,
-    getQuotes: getQuotes
+    getQuotes: getQuotes,
+    randomQuote: randomQuote
 }

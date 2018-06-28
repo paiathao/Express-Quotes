@@ -8,6 +8,7 @@ app.use(express.static('server/public'))
 app.use(bodyParser.urlencoded({ extended: true })); // require for POST
 
 app.get('/quotes', quotes.getQuotes);
+app.get('/random', quotes.randomQuote);  //add new route 
 
 app.post('/quotes', quotes.newQuotes);
 

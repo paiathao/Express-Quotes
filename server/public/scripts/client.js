@@ -6,7 +6,33 @@ function readyNow() {
     console.log('ready now')
 
     $('#submit').on('click', postQuote)
+    $('#random').on('click', randomQuote)
     getAllQuotes();
+}
+
+function randomQuote(){
+    $.ajax({
+        url: '/random',
+        method: 'GET'
+    }).done(function (response) {
+        // .empty() will clear my div before it appends all quotes again
+        $('#quotesContainer').empty();
+        // this gets all my quotes
+        $('#quotesContainer').append(`
+            <div class="card">
+            <div class="card-header">
+              Quote
+            </div>
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p id="quotesContainer">${response.text}</p>
+                <footer class="blockquote-footer"><cite title="Source Title">${response.author}</cite></footer>
+              </blockquote>
+            </div>
+            </div>`)
+    }).fail(function (errorResponse) {
+        return alert(errorResponse);
+    })
 }
 
 function postQuote() {
@@ -22,8 +48,6 @@ function postQuote() {
         }
     }).done(function () {
         // don't need a response unless I want something else done
-    }).fail(function(err){
-        return alert(err)
     })
     // after POST is done, get all new quotes
     getAllQuotes()
