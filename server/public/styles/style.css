@@ -1,0 +1,14 @@
+h1 {
+    text-align: center;
+    background: lightcoral;
+    font-style: italic;
+    height: 70px;
+}
+
+.card {
+    margin: 10px;
+    width: 350px;
+    height: 200px;
+    float: left;
+}
+
